@@ -4,10 +4,11 @@ n, m = map(int, input().split())
 truth = list(map(int, input().split())) # 진실을 아는 사람의 수와 번호 
 truth_set = set(truth[1:])
 party_list = []
-result_list = []
+result_list = [0]*(m)
 
 for i in range(m):
-    party_list.append(set(map(int, input().split())))
+    data = list(map(int, input().split()))
+    party_list.append(set(data[1:]))
     result_list[i] = 1 # 1로 초기화한다. 
 
 for _ in range(m):
@@ -16,6 +17,5 @@ for _ in range(m):
             result_list[i] = 0
             truth_set = truth_set.union(party)
             
-        
 
 print(sum(result_list))
