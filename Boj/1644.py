@@ -22,6 +22,5 @@ for start in range(len(numbers)):
         count += 1
     interval_sum -= numbers[start]
     
-# false 이면 소수
 print(count)
 
