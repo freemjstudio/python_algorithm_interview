@@ -1,26 +1,25 @@
 # 팰린드롬?
-from collections import deque
+# DP 로 풀이 
 
 n = int(input())
-data = [0]+list(map(int, input().split()))
+data = list(map(int, input().split()))
 m = int(input())
+dp = [[0]* n for _ in range(n)] # n*n dp table 
 
-def check(s, e): # 펠린드롬 확인 
-    queue = deque(data[s:e+1])
-    
-    while len(queue) > 1:
-        if queue.popleft() != queue.pop():
-            return False
-    return True 
+for start in range(n):
+    for j in range(n-start):
+        end = start + j 
+        if end == start:
+            dp[start][end] = 1
+        elif data[start] == data[end]: # 시작점과 끝점이 동일하면
+            if end - start == 1: # 문자열 길이가 2라면 펠린드롬
+                dp[start][end] = 1 
+            elif dp[start+1][end-1] == 1: # 가운데 문자열이 펠린드롬이면 펠린드롬
+                dp[start][end] = 1
+        
 
 for _ in range(m):
     s, e = map(int, input().split())
-    if check(s, e):
-        print(1)
-    else:
-        print(0)
+    print(dp[s-1][e-1])
     
 
-    
-    
-    
