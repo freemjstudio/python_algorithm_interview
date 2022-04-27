@@ -1,22 +1,24 @@
 # 팰린드롬?
 # DP 로 풀이 
+import sys
+input = sys.stdin.readline
 
 n = int(input())
 data = list(map(int, input().split()))
 m = int(input())
 dp = [[0]* n for _ in range(n)] # n*n dp table 
 
-for start in range(n):
-    for j in range(n-start):
-        end = start + j 
-        if end == start:
-            dp[start][end] = 1
-        elif data[start] == data[end]: # 시작점과 끝점이 동일하면
-            if end - start == 1: # 문자열 길이가 2라면 펠린드롬
-                dp[start][end] = 1 
-            elif dp[start+1][end-1] == 1: # 가운데 문자열이 펠린드롬이면 펠린드롬
-                dp[start][end] = 1
+for length in range(n):
+    for start in range(n-length):
+        end = start + length
         
+        if start == end:
+            dp[start][end] = 1
+        elif data[start] == data[end]:
+            if start+1 == end:
+                dp[start][end] = 1
+            elif dp[start+1][end-1] == 1:
+                dp[start][end] = 1
 
 for _ in range(m):
     s, e = map(int, input().split())
