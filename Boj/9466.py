@@ -1,35 +1,33 @@
-# 9466 텀 프로젝트 
+# 9466 
+import sys
+sys.setrecursionlimit(999999)
 
-t = int(input())
-    
 def dfs(x):
-    global team 
-    visited[x] = True
-    cycle.append(x) # 맨 처음 팀원
+    global result
+    visited[x] = True 
+    cycle.append(x)
     
-    if visited[data[x]]: # 이미 방문했다면 사이클 여부를 확인한다 
+    if visited[data[x]]: # True 
         if data[x] in cycle:
-            team += cycle[cycle.index(data[x]):] # cycle이 되는 구간이 팀을 이룸
-        return 
-    else: # 아직 방문하지 않은 데이터라면 다시 dfs로 순환한다. 
-        dfs(data[x]) # 아직 방문안했으면 
+            result += cycle[cycle.index(data[x]):]
+    else: # False 
+        dfs(data[x])
     
-    
-    
-
+t = int(input())   
 for _ in range(t):
-    n = int(input())
+    n = int(input()) # 학생수 
+    data = [0] + list(map(int, input().split()))
     visited = [False]*(n+1)
-    data = [0] + list(map(int, input().split())) 
-    team = []
+    result = []
     
     for i in range(1, n+1):
         if visited[i] == False:
-            cycle = []
+            cycle = [] 
             dfs(i)
+            
+    print(n-len(result))
+            
     
-    #result 
-    print(n - len(team))
     
 
     
