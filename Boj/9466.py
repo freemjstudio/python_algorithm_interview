@@ -24,7 +24,6 @@ for _ in range(t):
         if visited[i] == False:
             cycle = [] 
             dfs(i)
-            
     print(n-len(result))
             
     
