@@ -7,4 +7,6 @@ for i in range(n):
     for j in range(n):
         weight.append(list(map(int, input().split())))
 
+
+
 print(min(dp))
