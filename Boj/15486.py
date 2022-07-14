@@ -14,7 +14,10 @@ for _ in range(n):
 result = 0 
 
 for i in range(n): # 0 ~ n-1
-    result = max()
+    result = max(result, dp[i])
+    if i+t[i] > n: # 주어진 일 수보다 긴 경우 -> 상담 불가능 
+        continue
+    dp[i+t[i]] = max(p[i]+result, dp[i+t[i]])
     
 
 print(max(dp))
