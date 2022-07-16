@@ -18,7 +18,7 @@ for i in range(1, int(n/2)+1): # 1~ n//2 까지 확인하기
         link = list(set(member)-set(start))
         start_sum = 0 
         link_sum = 0 
-        for x in range(n-1):
+        for x in range(n-1): # start & link는 최대 팀원수가 n-1 명이므로 ~ 인덱스조회
             for y in range(n-1):
                 try:
                     s = data[start[x]][start[y]]
