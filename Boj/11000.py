@@ -3,7 +3,6 @@
 import heapq # 우선순위 큐 라이브러리 사용하기 
 
 n = int(input())
-count = 0 # 강의실의 개수 
 times = []
 
 for _ in range(n):
@@ -22,5 +21,3 @@ for i in range(1, n):
         heapq.heappush(room, times[i][1])
         
 print(len(room))
-        
-        
