@@ -14,7 +14,7 @@ room = [] # priority queue
 heapq.heappush(room, times[0][1]) # 첫 회의 종료시간을 넣는다 
 
 for i in range(1, n):
-    if times[i][0] > room[0]: # 두번째 회의 시간이 첫 회의 시간보다 더 느린 경우 -> 룸 개수 추가 안됨 
+    if times[i][0] >= room[0]: # 두번째 회의 시간이 첫 회의 시간보다 더 느린 경우 -> 룸 개수 추가 안됨 , 시간 동일해도 가능 ! 
         heapq.heappop(room)
         heapq.heappush(room, times[i][1])
     else:
