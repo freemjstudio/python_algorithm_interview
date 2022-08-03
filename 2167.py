@@ -13,5 +13,8 @@ for _ in range(T):
     x -= 1
     y -= 1
     sum = 0 
-    for 
+    for i in range(a, x+1):
+        for j in range(b, y+1):
+            sum += data[i][j]
+    print(sum)
     
