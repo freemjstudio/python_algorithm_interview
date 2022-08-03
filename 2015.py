@@ -1,8 +1,6 @@
 # 2015 수들의 합 4
 from collections import defaultdict
 
-from traitlets import default # 딕셔너리이면서 디폴트 값을 정할 수 있음 
-
 n, k = map(int, input().split())
 array = list(map(int, input().split()))
 
@@ -19,3 +17,4 @@ for i in range(n):
     totalsum[array[i]] += 1 # 누적합이 S[i] 이 되는 경우 (딕셔너리 값을 올려준다)
     
 print(count)
+
