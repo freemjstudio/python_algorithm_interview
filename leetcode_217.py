@@ -9,10 +9,10 @@ class Solution:
                 check[i] = 1
         
         # key 값이 2인것이 있으면 return true else false
-        flag = false
+        flag = False
         for i in check.values():
             if i >= 2:
-                flag = true 
+                flag = True 
         return flag
             
         
